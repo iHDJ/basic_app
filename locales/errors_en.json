@@ -1,0 +1,5 @@
+{
+  "1001_no_query_param": "please pass the name: 'query' param",
+  "1002_param_incomplete": "the param is incomplete",
+  "1003_create_fail": "sorry create fail"
+}

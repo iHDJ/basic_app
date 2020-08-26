@@ -1,0 +1,51 @@
+version: "3"
+
+#前端模版
+services:
+  nginx:
+    restart: always
+    image: nginx:1.17.0
+    container_name: nginx.basic_app.docker
+    ports:
+      - 8800:80
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+
+  ant-design-pro:
+    image: node:lts
+    container_name: ant-design-pro.basic_app.docker
+    volumes:
+      - './ant-design-pro:/app'
+    tty: true
+    ports:
+      - 8000:8000
+
+  backstage:
+    image: golang:1.13.5
+    container_name: backstage.basic_app.docker
+    tty: true
+    volumes:
+      - ".:/app"
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql.basic_app.docker
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - "mysql_data:/var/lib/mysql"
+
+  redis:
+    image: redis
+    container_name: redis.basic_app.docker
+    volumes:
+      - "redis_data:/data"
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  default:
+    external:
+      name: default-network

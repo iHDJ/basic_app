@@ -1,0 +1,14 @@
+mysql:
+  username: 'root'
+  password: 'root'
+  address: 'mysql.basic_app.docker:3306'
+  database: 'basic_app'
+  config: 'charset=utf8&parseTime=True&loc=Local'
+  max-idle-conns: 10
+  max-open-conns: 10
+  log-mode: false
+
+redis:
+  address: 'redis.basic_app.docker:6379'
+  password: ''
+  db: 0

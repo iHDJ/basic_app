@@ -1,0 +1,7 @@
+{
+  "1001_no_query_param": "没有传递Query参数",
+  "1002_param_incomplete": "传递的参数不完整",
+  "1003_create_fail": "创建失败",
+  "1004_query_fail": "查询失败，出现了不可预知的错误",
+  "1005_csrf_token_mismatch": "CSRF Token不匹配"
+}
