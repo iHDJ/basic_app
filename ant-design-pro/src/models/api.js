@@ -1,6 +1,4 @@
-import createModel from "@/lib/utils/createModel";
-import request from '@/utils/request';
-import { func } from "prop-types";
+import request from '@/lib/utils/request';
 
 async function createApi(params = {}) {
   return request(`${params.url}`, {

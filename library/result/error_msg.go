@@ -19,6 +19,10 @@ type errorMsg struct {
 	enMsg string
 }
 
+func (err errorMsg) Error() string {
+	return err.zhMsg
+}
+
 func FindErrorMessage(key string, language string) (string, int) {
 	err, ok := errorsMap.Load(key)
 	errV, _ := err.(errorMsg)

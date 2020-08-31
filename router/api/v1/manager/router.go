@@ -25,7 +25,7 @@ func initUserRoute(router *gin.RouterGroup) {
 	r := router.Group("/user")
 
 	r.GET("/", userService.CurrentUser)
-	r.GET("/sign_in", userService.SignIn)
+	r.POST("/sign_in", userService.SignIn)
 }
 
 // 载入/api/v1/manager/group模块API

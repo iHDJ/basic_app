@@ -4,6 +4,7 @@ import (
 	"basic_app/dao/model"
 	"basic_app/dao/service"
 	"basic_app/dao/service/enum"
+	"basic_app/dao/service/member"
 	"basic_app/dao/service/user"
 
 	"github.com/go-redis/redis/v8"
@@ -17,15 +18,13 @@ var (
 type Dao struct {
 	*enum.EnumerationService
 	*user.UserService
+	*member.MemberService
 
-	orm   *gorm.DB
-	redis *redis.Client
+	orm *gorm.DB
 }
 
 func New(orm *gorm.DB, redis *redis.Client) (dao *Dao, err error) {
-	dao = &Dao{orm: orm, redis: redis}
-	dao.EnumerationService = enum.NewService(orm)
-	dao.UserService = user.NewService(orm)
+	dao = &Dao{orm: orm}
 
 	if err = dao.init(); err != nil {
 		dao = nil
@@ -49,6 +48,7 @@ func (dao *Dao) init() (err error) {
 		model.AuthorityItem{},
 		model.MemberAuthority{},
 	).Error
+
 	return
 }
 

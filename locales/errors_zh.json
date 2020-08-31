@@ -1,7 +1,14 @@
 {
-  "1001_no_query_param": "没有传递Query参数",
-  "1002_param_incomplete": "传递的参数不完整",
-  "1003_create_fail": "创建失败",
-  "1004_query_fail": "查询失败，出现了不可预知的错误",
-  "1005_csrf_token_mismatch": "CSRF Token不匹配"
+  "10001_no_query_param": "没有传递Query参数",
+  "10002_param_incomplete": "传递的参数不完整",
+  "10003_create_fail": "创建失败",
+  "10004_query_fail": "查询失败，出现了不可预知的错误",
+  "10005_csrf_token_mismatch": "CSRF Token不匹配",
+  "10006_record_not_found": "请求的记录不存在",
+  "10007_access_session_not_found": "无法辨别您的身份，可能授权已过期",
+  "10008_unkown_error": "发生了未知的错误",
+  "10009_session_error": "会话异常",
+
+  "20001_user_or_password_wrong": "用户或密码错误",
+  "20002_phone_auth_code_wrong": "手机验证码错误"
 }

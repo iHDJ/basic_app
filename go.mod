@@ -4,12 +4,17 @@ go 1.14
 
 require (
 	github.com/CyberBunker/sessions v0.0.4
-	github.com/gin-contrib/sessions v0.0.3
+	github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff
+	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-bindata/go-bindata v3.1.2+incompatible // indirect
 	github.com/go-redis/redis/v8 v8.0.0-beta.7
 	github.com/gobuffalo/packr v1.30.1
 	github.com/gobuffalo/packr/v2 v2.8.0
+	github.com/gomodule/redigo v2.0.0+incompatible
+	github.com/gorilla/context v1.1.1
+	github.com/gorilla/securecookie v1.1.1
+	github.com/gorilla/sessions v1.1.3
 	github.com/gorilla/websocket v1.4.2
 	github.com/jinzhu/gorm v1.9.12
 	github.com/karrick/godirwalk v1.16.0 // indirect

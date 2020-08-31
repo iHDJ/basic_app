@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"regexp"
 
-	csrf "github.com/utrack/gin-csrf"
+	"basic_app/router/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,7 +18,7 @@ var (
 )
 
 func FrontendHandle(c *gin.Context) {
-	var token = csrf.GetToken(c)
+	var token = middleware.GetCSRFToken(c)
 	body, err := getFrontendResponse()
 
 	if err != nil {

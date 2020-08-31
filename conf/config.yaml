@@ -12,3 +12,7 @@ redis:
   address: 'redis.basic_app.docker:6379'
   password: ''
   db: 0
+session:
+  address: 'redis.basic_app.docker:6379'
+  password: ''
+  db: 1

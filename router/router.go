@@ -1,33 +1,33 @@
 package router
 
 import (
+	"github.com/gin-gonic/gin"
+
 	"basic_app/library/language"
 	"basic_app/library/result"
-	"basic_app/router/middleware"
-
-	"github.com/gin-gonic/gin"
-	csrf "github.com/utrack/gin-csrf"
-
+	"basic_app/library/sessions"
 	v1Manager "basic_app/router/api/v1/manager"
+	"basic_app/router/middleware"
 )
 
 func LoadRouter(addr string) {
-	r := gin.New()
+	r := gin.Default()
+	r.GET("/favicon.png", FaviconHandle)
 	r.Use(
-		gin.Logger(),
-		middleware.RecoveryWithWriter(gin.DefaultErrorWriter),
-		middleware.Session,
-		csrf.Middleware(csrf.Options{
-			Secret: "secret123",
+		middleware.Sessions(sessions.NewRedisStore()),
+		middleware.Language(language.ZH_CN), //默认中文
+		middleware.CSRF(middleware.CsrfOptions{
+			Secret: middleware.CsrfSecret,
 			ErrorFunc: func(c *gin.Context) {
-				result.Error(c, "1005_csrf_token_mismatch")
+				result.Error(c, "10005_csrf_token_mismatch")
 				c.Abort()
 			},
 		}),
-		middleware.Language(language.ZH_CN), //默认中文
 	)
 
-	RegisterV1Apis(r)
+	//RegisterV1Apis(r)
+
+	managerRoute(r)
 
 	r.Use(FrontendHandle) //当访问的URL无法匹配时，则返回前端HTML
 

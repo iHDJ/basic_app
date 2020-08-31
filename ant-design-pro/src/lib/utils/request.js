@@ -1,5 +1,5 @@
 import superRequest from '@/utils/request';
-import { csrfToken, requestHeaders } from '../settings';
+import { csrfToken, requestHeaders } from './setting';
 
 export default function request(url, options = {}) {
   let { headers } = options;

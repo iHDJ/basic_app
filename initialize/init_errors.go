@@ -10,6 +10,7 @@ import (
 )
 
 func InitErrorsMap() (err error) {
+
 	var (
 		content = make(map[string]string)
 		data    []byte
