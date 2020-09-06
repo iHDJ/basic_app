@@ -18,6 +18,10 @@ var (
 )
 
 func FrontendHandle(c *gin.Context) {
+	if c.Request.Method != "GET" {
+		return
+	}
+
 	var token = middleware.GetCSRFToken(c)
 	body, err := getFrontendResponse()
 
